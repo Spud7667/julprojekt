@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         en middag på Moon Thai med härlig elegans.
       `;
       message.style.color = "green";
-      message.style.fontSize = "0.8rem";
+      message.style.fontSize = "1.0rem";
       message.style.lineHeight = "1.4";
     } else if (clickCount === 2) {
       // Andra klicket: inbjudningskort
