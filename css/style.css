@@ -7,132 +7,42 @@ html, body {
 
 body {
   background-color: #000;
-  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
-  height: 100%;
+.header {
+  text-align: center;
+  color: red;
+  background-color: yellow;
+  padding: 1rem;
+}
+
+.tic-tac-toe {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  height: calc(100% - 60px); /* Justera för höjden av headern */
 }
 
-.color {
-  color: #646464;
-  font-size: small;
-  user-select: none;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px; /* Avstånd mellan rutorna */
 }
 
-.frame {
-  border: 2px solid #fff;
+.cell {
+  width: 100px; /* Justera storleken på rutorna */
+  height: 100px;
   background-color: #1a1a1a;
-  padding: 4rem 6rem;
-  text-align: center;
-  max-width: 90%;
-  box-sizing: border-box;
-}
-
-.frame h1 {
-  margin: 0;
-  color: red;
-  font-size: clamp(2rem, 5vw, 4rem);
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem; /* Större text för X och O */
+  color: white;
   cursor: pointer;
 }
 
-#rainbow-text {
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  font-weight: bold;
-  text-align: center;
-  background: linear-gradient(
-    90deg,
-    red,
-    orange,
-    yellow,
-    green,
-    cyan,
-    blue,
-    violet,
-    red
-  );
-  background-size: 400% 400%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: rainbowShift 6s linear infinite, wave 2.5s ease-in-out infinite;
-}
-
-@keyframes rainbowShift {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-@keyframes wave {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-/* Inbjudningskort */
-.invitation {
-  background: linear-gradient(135deg, #FFB347, #FF5E62); /* varma Thailand-färger */
-  color: #fff;
-  border-radius: 15px;
-  padding: 2rem;
-  max-width: 500px;
-  font-family: 'Georgia', serif;
-  box-shadow: 0 0 20px rgba(255, 200, 100, 0.7);
-  position: relative;
-  overflow: hidden;
-}
-
-.invitation h2 {
-  margin-top: 0;
-  font-size: 2rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
-.invitation p {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-/* Subtila palmer och ljuseffekt */
-.invitation::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -20%;
-  width: 140%;
-  height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2024/09/10/09/31/ai-generated-9036727_1280.jpg');
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.invitation::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(255,255,200,0.2), transparent 70%);
-  pointer-events: none;
-}
-
-@media (max-width: 600px) {
-  .frame {
-    padding: 2rem;
-  }
-
-  .invitation {
-    padding: 1rem;
-    font-size: 1rem;
-  }
+.cell:hover {
+  background-color: #333;
 }

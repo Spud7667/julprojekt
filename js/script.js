@@ -1,26 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const message = document.getElementById("message");
-  let clickCount = 0;
+const cells = document.querySelectorAll('.cell');
+let currentPlayer = 'X';
 
-  message.addEventListener("click", function () {
-    clickCount++;
-
-    if (clickCount === 1) {
-      // Första klicket: julrim
-      message.innerHTML = `
-        Snö!
-      `;
-      message.style.color = "green";
-      message.style.fontSize = "1.0rem";
-      message.style.lineHeight = "1.4";
-    } else if (clickCount === 2) {
-      // Andra klicket: inbjudningskort
-      message.innerHTML = `
-        Kyssar!
-      `;
-      message.style.color = "";       // låt texten följa invitation-klassens färg
-      message.style.fontSize = "";    // återställ font-size
-      message.style.lineHeight = "";  // återställ line-height
+cells.forEach(cell => {
+  cell.addEventListener('click', () => {
+    if (cell.innerHTML === '') {
+      cell.innerHTML = currentPlayer;
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; // Byter spelare
     }
   });
 });
